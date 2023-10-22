@@ -113,9 +113,9 @@ public class VariableNamesTheme {
         System.out.println("Сотни равны? " + isEqualHundreds);
         System.out.println("Компьютер включен? " + isPcOn);
         System.out.println("Есть равные цифры? " + isEqualNumbers);
-        System.out.println("(Что-либо) создано? " + isCreated);
-        System.out.println("(Что-либо) пусто? " + isEmpty);
-        System.out.println("(Что-либо) активный? " + isActive);
+        System.out.println("Создано? " + isCreated);
+        System.out.println("Пусто? " + isEmpty);
+        System.out.println("Активный? " + isActive);
         System.out.println("Новый? " + isNew);
         System.out.println("Электронная почта действительная? " + isValidEmail);
         System.out.println("Имеются уникальные строки? " + hasUniqueStrings);
