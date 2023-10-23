@@ -126,11 +126,11 @@ public class VariableNamesTheme {
         // производитель оперативной памяти
         String manufacturerRam = "Crucial";
         // емкость жесткого диска
-        String capacityHhd = "1 ТБ";
+        String capacityHdd = "1 ТБ";
         // протокол передачи гипертекста
         String http = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY";
         // сокращенный uniform resource locator
-        String reducedUrl = "www.domain.com:";
+        String shortUrl = "www.domain.com:";
         // новый идентификатор клиента
         int newCuid = 456789;
         // кодировка american standard code for information interchange
@@ -138,9 +138,9 @@ public class VariableNamesTheme {
 
         System.out.println("Старый universally unique identifier - " + oldUuid);
         System.out.println("Производитель оперативной памяти - " + manufacturerRam);
-        System.out.println("Емкость жесткого диска " + capacityHhd);
+        System.out.println("Емкость жесткого диска " + capacityHdd);
         System.out.println("Пример - " + http);
-        System.out.println("URL: " + reducedUrl);
+        System.out.println("URL: " + shortUrl);
         System.out.println("Новый идентификатор клиента - " + newCuid);
         System.out.println("ASCII - " + ascii);
     }
