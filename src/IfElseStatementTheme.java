@@ -1,9 +1,9 @@
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("\n1. Перевод псевдокода на язык Java");
-        boolean genderM = true;
+        boolean genderMale = true;
 
-        if (!genderM) {
+        if (!genderMale) {
             System.out.println("Выбирает автомобиль по внешнему виду");
         } else {
             System.out.println("Выбирает автомобиль по техническим характеристикам");
@@ -33,60 +33,57 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n2. Поиск большего числа");
-        int number1 = 2;
-        int number2 = 137;
+        int a = 2;
+        int b = 137;
 
-        if (number1 > number2) {
-            System.out.printf("Число %d больше числа %d%n", number1, number2);
-        } else if (number1 < number2) {
-            System.out.printf("Число %d меньше числа %d%n", number1, number2);
+        if (a > b) {
+            System.out.printf("Число %d больше числа %d%n", a, b);
+        } else if (a < b) {
+            System.out.printf("Число %d меньше числа %d%n", a, b);
         } else {
-            System.out.printf("Число %d равно числу %d%n", number1, number2);
+            System.out.printf("Число %d равно числу %d%n", a, b);
         }
 
         System.out.println("\n3. Проверка числа");
-        number1 = -17;
-        String s = "";
-        String s1 = "";
+        a = -17;
+        String evenOdd = "";
+        String positiveNegat = "";
 
-        if (number1 != 0) {
-            if (number1 % 2 == 0) {
-                s = "четным";
+        if (a != 0) {
+            if (a % 2 == 0) {
+                evenOdd = "четным";
             } else {
-                s = "нечетным";
+                evenOdd = "нечетным";
             }
-            if (number1 > 0) {
-                s1 = "положительным";
+            if (a > 0) {
+                positiveNegat = "положительным";
             } else {
-                s1 = "отрицательным";
+                positiveNegat = "отрицательным";
             }
-            System.out.printf("Число %d является %s и %s%n", number1, s1, s);
+            System.out.printf("Число %d является %s и %s%n", a, positiveNegat, evenOdd);
+        } else {
+            System.out.println("Число равно 0");
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        number1 = 144;
-        number2 = 223;
-        String hundredsNumber = "";
-        String tensNumber = "";
-        String unitsNumber = "";
-
-        if (number1 / 100 == number2 / 100 || number1 / 10 % 10 == number2 / 10 % 10 || number1 % 10 == number2 % 10) {
-            System.out.println(number1 + " и " + number2);
-            if (number1 / 100 == number2 / 100) {
-                System.out.print(number1 / 100 + " ");
-                hundredsNumber = "1 ";
-            }
-            if (number1 / 10 % 10 == number2 / 10 % 10) {
-                System.out.print(number1 / 10 % 10 + " ");
+        a = 144;
+        b = 223;
+        boolean isRight = (a / 100 == b / 100) || (a / 10 % 10 == b / 10 % 10) || (a % 10 == b % 10);
+    
+        if (!isRight) {
+            System.out.println("Равных цифр нет");
+        } else {
+            System.out.println(a + " и " + b);
+            if (a % 10 == b % 10) {
+                System.out.println(a % 10 + " - 1, ");
+            }            
+            if (a / 10 % 10 == b / 10 % 10) {
+                System.out.print(a / 10 % 10 + " - 2, ");
                 tensNumber = "2 ";
             }
-            if (number1 % 10 == number2 % 10) {
-                System.out.println(number1 % 10);
-                unitsNumber = "3 ";
+            if (a / 100 == b / 100) {
+                System.out.print(a / 100 + " - 3");
             }
-            System.out.println(hundredsNumber + tensNumber + unitsNumber);
-        } else {
-            System.out.println("Равных цифр нет");
         }
 
         System.out.println("\n5. Определение символа по его коду");
