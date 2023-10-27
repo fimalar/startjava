@@ -82,7 +82,7 @@ public class IfElseStatementTheme {
                 tensNumber = "2 ";
             }
             if (a / 100 == b / 100) {
-                System.out.print(a / 100 + " - 3");
+                System.out.print(a / 100 + " - 3\n");
             }
         }
 
@@ -90,12 +90,11 @@ public class IfElseStatementTheme {
         char symbol ='\u0031';
         String typeChar = "";
 
-        if (symbol > '/' && symbol < ':') {
+        if (symbol >= '0' && symbol <= '9') {
             typeChar = "цифрой";
-        }
-        else if (symbol > '@' && symbol < '[') {
+        } else if (symbol >= 'A' && symbol <= 'Z') {
             typeChar = "большой буквой";
-        } else if (symbol > '`' && symbol < '{') {
+        } else if (symbol >= 'a' && symbol <= 'z') {
             typeChar = "маленькой буквой";
         } else {
             typeChar = "не буквой и не цифрой";
@@ -104,34 +103,32 @@ public class IfElseStatementTheme {
 
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         int amountDeposit = 301_000;
-        int amountPersent = 0;
+        int persent = 10;
 
         if (amountDeposit < 100_000) {
-            amountPersent = amountDeposit * 5 / 100;
+            persent = 5;
         } else if (amountDeposit <= 300_000) {
-            amountPersent = amountDeposit * 7 / 100;
-        } else if (amountDeposit > 300_000) {
-            amountPersent = amountDeposit * 10 / 100;
+            persent = 7;
         }
+        int amountPersent = amountDeposit * persent / 100;
         int amountAll = amountDeposit + amountPersent;
         System.out.printf("Сумма вклада - %d%nсумма начисленного %% - %d%nитоговая сумма - %d%n", 
                 amountDeposit, amountPersent, amountAll);
 
         System.out.println("\n7. Определение оценки по предметам");
         int persentHistory = 59;
-        int persentProgramming = 92;
-        int gradeHistory = 0;
-        int gradeProgramming = 0;
+        int gradeHistory = 2;
 
-        if (persentHistory <= 60) {
-            gradeHistory = 2;
-        } else if (persentHistory <= 73) {
-            gradeHistory = 3;
-        } else if (persentHistory <= 91) {
-            gradeHistory = 4;
-        } else {
+        if (persent > 91) {
             gradeHistory = 5;
+        } else if (persentHistory > 73) {
+            gradeHistory = 4;
+        } else if (persentHistory > 60) {
+            gradeHistory = 3;
         }
+        
+        int persentProgramming = 92;
+        int gradeProgramming = 5;
 
         if (persentProgramming <= 60) {
             gradeProgramming = 2;
@@ -139,25 +136,22 @@ public class IfElseStatementTheme {
             gradeProgramming = 3;
         } else if (persentProgramming <= 91) {
             gradeProgramming = 4;
-        } else {
-            gradeProgramming = 5;
-        }
+        } 
 
         System.out.printf("История - %d, программирование - %d%n", gradeHistory, gradeProgramming);
         System.out.println("Средний балл оценок по предметам - " + (gradeHistory + gradeProgramming) / 2.);
         System.out.println("Средний % по предметам - " + (persentHistory + persentProgramming) / 2.);
 
-
         System.out.println("\n8. Расчет годовой прибыли");
         int productSalesMonth = 13000;
         int rentMonth = 5000;
         int costProduction = 9000;
-        int profitYear = productSalesMonth * 12 - costProduction * 12;
+        int profitYear = 12 (productSalesMonth  - costProduction);
 
-        if (profitYear < 0 ) {
-            System.out.printf("Прибыль за год: %d" + profitYear);
-        } else if (profitYear > 0) {
+        if (profitYear > 0) {
             System.out.printf("Прибыль за год: %+d%n", profitYear);
+        } else {
+            System.out.printf("Прибыль за год: %d" + profitYear);
         }
     }
 }
