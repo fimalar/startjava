@@ -79,7 +79,6 @@ public class IfElseStatementTheme {
             }            
             if (a / 10 % 10 == b / 10 % 10) {
                 System.out.print(a / 10 % 10 + " - 2, ");
-                tensNumber = "2 ";
             }
             if (a / 100 == b / 100) {
                 System.out.print(a / 100 + " - 3\n");
@@ -146,12 +145,12 @@ public class IfElseStatementTheme {
         int productSalesMonth = 13000;
         int rentMonth = 5000;
         int costProduction = 9000;
-        int profitYear = 12 (productSalesMonth  - costProduction);
+        int profitYear = 12 * (productSalesMonth  - costProduction - rentMonth);
 
         if (profitYear > 0) {
             System.out.printf("Прибыль за год: %+d%n", profitYear);
         } else {
-            System.out.printf("Прибыль за год: %d" + profitYear);
+            System.out.printf("Прибыль за год: %d", profitYear);
         }
     }
 }
