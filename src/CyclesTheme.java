@@ -160,7 +160,7 @@ public class CyclesTheme {
         }
 
         System.out.println("\n9. Проверка, является ли число счастливым");
-        int number = "234801";
+        int number = 234801;
         int sum1 = 0;
         int sum2 = 0;
         String st1 = "";
@@ -168,7 +168,7 @@ public class CyclesTheme {
         count = 0;
 
         while (number > 0) {
-            temp = number % 10;
+            int temp = number % 10;
             if (count < 3) {
                 sum1 += temp;
                 st1 += temp;
