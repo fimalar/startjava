@@ -2,7 +2,6 @@ public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("\n1. Перевод псевдокода на язык Java");
         boolean genderMale = true;
-
         if (!genderMale) {
             System.out.println("Выбирает автомобиль по внешнему виду");
         } else {
@@ -47,7 +46,7 @@ public class IfElseStatementTheme {
         System.out.println("\n3. Проверка числа");
         a = -17;
         String evenOdd = "";
-        String positiveNegat = "";
+        String positiveNegative = "";
 
         if (a != 0) {
             if (a % 2 == 0) {
@@ -56,11 +55,11 @@ public class IfElseStatementTheme {
                 evenOdd = "нечетным";
             }
             if (a > 0) {
-                positiveNegat = "положительным";
+                positiveNegative = "положительным";
             } else {
-                positiveNegat = "отрицательным";
+                positiveNegative = "отрицательным";
             }
-            System.out.printf("Число %d является %s и %s%n", a, positiveNegat, evenOdd);
+            System.out.printf("Число %d является %s и %s%n", a, positiveNegative, evenOdd);
         } else {
             System.out.println("Число равно 0");
         }
@@ -68,20 +67,26 @@ public class IfElseStatementTheme {
         System.out.println("\n4. Поиск одинаковых цифр в числах");
         a = 144;
         b = 223;
-        boolean isRight = (a / 100 == b / 100) || (a / 10 % 10 == b / 10 % 10) || (a % 10 == b % 10);
+        int onesA = a % 10;
+        int onesB = b % 10;
+        int tensA = a / 10 % 10;
+        int tensB = b / 10 % 10;
+        int hundredsA = a / 100;
+        int hundredsB = b / 100;
+        boolean sEqual = (hundredsA == hundredsB) || (tensA == tensB) || (onesA == onesB);
     
-        if (!isRight) {
+        if (!sEqual) {
             System.out.println("Равных цифр нет");
         } else {
             System.out.println(a + " и " + b);
-            if (a % 10 == b % 10) {
-                System.out.println(a % 10 + " - 1, ");
+            if (onesA == onesB) {
+                System.out.println(onesA + " - 1, ");
             }            
-            if (a / 10 % 10 == b / 10 % 10) {
-                System.out.print(a / 10 % 10 + " - 2, ");
+            if  (tensA == tensB) {
+                System.out.print (tensA + " - 2, ");
             }
-            if (a / 100 == b / 100) {
-                System.out.print(a / 100 + " - 3\n");
+            if (hundredsA == hundredsB) {
+                System.out.print(hundredsA + " - 3\n");
             }
         }
 
