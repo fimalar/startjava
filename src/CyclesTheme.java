@@ -18,24 +18,10 @@ public class CyclesTheme {
                 endRange, sumEven, sumOdd);
 
         System.out.println("\n2. Вывод чисел в порядке убывания");
-        int a = 10;
+        int max = 10;
         int b = 5;
-        int c = -1;
-        int min = a;
-        int max = a;
+        int min = -1;
 
-        if (b > max) {
-            max = b;
-        }
-        if (c > max) {
-            max = c;
-        }
-        if (b < min) {
-            min = b;
-        }
-        if (c < min) {
-            min = c;
-        }
         for (int i = max - 1; i > min; i--) {
             System.out.print(i + " ");
         }
@@ -56,17 +42,15 @@ public class CyclesTheme {
         endRange = 24;
         counter = 0;
 
-        for (int i = startRange; i < endRange; i++) {
-            if (i % 2 != 0) {
+        for (int i = startRange; i < endRange; i += 2) {
                 System.out.printf("%4d ", i);
                 counter++;
                 if (counter % 5 == 0) {
                     System.out.println();
-                }
             }
             if (i == (endRange - 1) && counter % 5 != 0) {
                 for (int j = 5 - (i % 5); j >= 0; j--) {
-                    System.out.printf("%1$4c ", '0');
+                    System.out.printf("%1$4d ", 0);
                 }
             }
         }
@@ -74,7 +58,6 @@ public class CyclesTheme {
         System.out.println("\n\n5. Проверка количества двоек числа на четность/нечетность");
         int numberCheckTwos = 3242592;
         int countTwos = 0;
-        String evenOrOdd = "";
         int copyNumberCheckTwos = numberCheckTwos;
 
         while(copyNumberCheckTwos > 0) {
@@ -84,6 +67,7 @@ public class CyclesTheme {
             copyNumberCheckTwos /= 10;
         }
 
+        String evenOrOdd = "";
         if (countTwos % 2 == 0) {
             evenOrOdd = "(четное)";
         } else {
@@ -134,13 +118,13 @@ public class CyclesTheme {
         System.out.println("-------------------------------------------------");
         for (int i = 15; i < 48; i++) {
             if (i % 2 == 1) {
-                System.out.printf("%5d %9c %5s %-13s%n", i, (char)i, " ", Character.getName(i));
+                System.out.printf("%5d %9c %10s %-13s%n", i, (char) i, " ", Character.getName(i));
             }
         }
 
         for (int i = 97; i < 123; i++) {
             if (i % 2 == 0) {
-                System.out.printf("%5d %9c %5s %-13s%n", i, (char)i, " ", Character.getName(i));
+                System.out.printf("%5d %9c %10s %-13s%n", i, (char) i, " ", Character.getName(i));
             }
         }
 
