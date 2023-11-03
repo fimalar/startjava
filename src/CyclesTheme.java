@@ -164,18 +164,14 @@ public class CyclesTheme {
         int copyHappyNumber = happyNumber;
         int sum1 = 0;
         int sum2 = 0;
-        String st1 = "";
-        String st2 = "";
         counter = 0;
         
         while (happyNumber > 0) {
             int remainder = happyNumber % 10;
             if (counter < 3) {
                 sum1 += remainder;
-                st1 += remainder;
             } else {
                 sum2 += remainder;
-                st2 += remainder;
             }
             happyNumber /= 10;
             counter++;
@@ -185,7 +181,8 @@ public class CyclesTheme {
         } else {
             System.out.printf("Число %s не является счастливым%n", copyHappyNumber);
         }
-        System.out.printf("Сумма цифр %s = %d, а сумма %s = %d%n", st1, sum1, st2, sum2);
+        System.out.printf("Сумма цифр %d = %d, а сумма %d = %d%n", 
+                copyHappyNumber / 1000, sum1, copyHappyNumber % 1000, sum2);
 
         
         System.out.println("\n10. Отображение таблицы умножения Пифагора\n");
