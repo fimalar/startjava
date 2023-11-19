@@ -1,38 +1,62 @@
 public class Calculator {
-    int firstNumber;
-    int secondNumber;
-    int result;
-    char sign;
+    private int a;
+    private int b;
+    private char sign;
 
-    public void run() {
-        switch (sign) {
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public int getA() {
+        return a;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setSign(char sign) {
+        this.sign = sign;
+    }
+
+    public char getSign() {
+        return sign;
+    }
+
+    public void calc() {
+        int result = 1;
+        switch (getSign()) {
             case '+':
-                System.out.println(firstNumber + secondNumber);
+                result = getA() + getB();
                 break;
             case '-':
-                System.out.println(firstNumber - secondNumber);
+                result = getA() - getB();
                 break;
             case '*':
-                System.out.println(firstNumber * secondNumber);
+                result = getA() * getB();
                 break;
             case '/':
-                System.out.println(firstNumber / secondNumber);
+                if (b != 0) {
+                    result = getA() / getB();
+                } else {
+                    System.out.println("На ноль делить нельзя");
+                }
                 break;
             case '^':
-                if (secondNumber == 0) {
-                    System.out.println("1");
+                for (int i = 0; i < getB(); i++) {
+                    result *= getA() ;
                 }
-                result = 1;
-                for (int i = 0; i < secondNumber; i++) {
-                    result *= firstNumber ;
-                }
-                System.out.println(result);
                 break;
             case '%':
-                System.out.println(firstNumber % secondNumber);
+                result = getA() % getB();
                 break;
             default:
                 System.out.println("Введенная математическая операция не поддерживается");
         }
+        System.out.println(getA() + " " + getSign() + " " + getB() + " = " + result);
     }
 }
