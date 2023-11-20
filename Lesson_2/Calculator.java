@@ -7,56 +7,44 @@ public class Calculator {
         this.a = a;
     }
 
-    public int getA() {
-        return a;
-    }
-
     public void setB(int b) {
         this.b = b;
-    }
-
-    public int getB() {
-        return b;
     }
 
     public void setSign(char sign) {
         this.sign = sign;
     }
 
-    public char getSign() {
-        return sign;
-    }
-
     public void calc() {
         int result = 1;
-        switch (getSign()) {
+        switch (sign) {
             case '+':
-                result = getA() + getB();
+                result = a + b;
                 break;
             case '-':
-                result = getA() - getB();
+                result = a - b;
                 break;
             case '*':
-                result = getA() * getB();
+                result = a * b;
                 break;
             case '/':
                 if (b != 0) {
-                    result = getA() / getB();
+                    result = a / b;
                 } else {
                     System.out.println("На ноль делить нельзя");
                 }
                 break;
             case '^':
-                for (int i = 0; i < getB(); i++) {
-                    result *= getA() ;
+                for (int i = 0; i < b; i++) {
+                    result *= a ;
                 }
                 break;
             case '%':
-                result = getA() % getB();
+                result = a % b;
                 break;
             default:
                 System.out.println("Введенная математическая операция не поддерживается");
         }
-        System.out.println(getA() + " " + getSign() + " " + getB() + " = " + result);
+        System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }
