@@ -4,7 +4,7 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Calculator calculator = new Calculator();
-        String input = "";
+        String inputYesNo = "";
         do {    
             System.out.print("Введите первое число: ");
             calculator.setA(scan.nextInt());
@@ -17,8 +17,8 @@ public class CalculatorTest {
             calculator.calc();
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");
-                input = scan.nextLine();
-            } while (!input.equals("yes") && !input.equals("no"));
-        } while (input.equals("yes"));
+                inputYesNo = scan.nextLine();
+            } while (!inputYesNo.equals("yes") && !inputYesNo.equals("no"));
+        } while (inputYesNo.equals("yes"));
     }
 }
