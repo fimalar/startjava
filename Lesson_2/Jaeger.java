@@ -9,20 +9,8 @@ public class Jaeger {
     private int armor;
     private String weapon;
 
-    public Jaeger() {
-        modelName = "";
-        mark = "";
-        origin = "";
-        height = 0.00f;
-        weight = 0.00f;
-        speed = 0;
-        strength = 0;
-        armor = 0;
-        weapon = "";
-    }
-
-    public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, 
-            int strength, int armor, String weapon) {
+    public Jaeger(String modelName, String mark, String origin, float height, 
+            float weight, int speed, int strength, int armor, String weapon) {
         this.modelName = modelName;
         this.mark = mark;
         this.origin = origin;
@@ -129,13 +117,13 @@ public class Jaeger {
     boolean hasWeapon(String weapon) {
         if (this.weapon.equals(weapon)) {
             return true;
-        } else {
-            return false;
         }
     }
 
     @Override
     public String toString() {
-        return String.format("Модель: %s \nИмя: %s \nПроизводство: %s \nТехнические данные: \nРост - %.2f \nВес - %.3f \nСкорость - %d \nСила - %d \nБроня %d \nОружие - %s\n", mark, modelName, origin, height, weight, speed, strength, armor, weapon);
+        return String.format("Модель: %s \nИмя: %s \nПроизводство: %s \nТехнические данные: \nРост - %.2f" +
+            "\nВес - %.3f \nСкорость - %d \nСила - %d \nБроня %d \nОружие - %s\n",
+            mark, modelName, origin, height, weight, speed, strength, armor, weapon);
     }
 }
