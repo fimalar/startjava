@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.lang.Math;
 
 public class GuessNumber {
@@ -5,32 +6,40 @@ public class GuessNumber {
     private int endRange = 100;
     private int pcNumber;
     private int playerNumber;
-    Player first;
-    Player second;
+    Player firstPlayer;
+    Player secondPlayer;
 
-    GuessNumber(Player first, Player second) {
-        this.first = first;
-        this.second = second; 
-    }
-
-    public int getPcNumber() {
-        return pcNumber;
-    }
-
-    public void setPlayerNumber(int number) {
-        playerNumber = number;
-    }
-
-    public int getPlayerNumber() {
-        return playerNumber;
+    GuessNumber(Player firstPlayer, Player secondPlayer) {
+        this.firstPlayer = firstPlayer;
+        this.secondPlayer = secondPlayer; 
     }
 
     public int start(){
         return pcNumber = (int) (Math.random() * 100 + 1);
     }
 
-    public void play(Player player) {
-        result();
+    public void play() {
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Игрок " + firstPlayer.getName() + " введите число");
+            firstPlayer.setNumber(sc.nextInt());
+            sc.nextLine();
+            playerNumber = firstPlayer.getNumber();
+            result();
+            if (playerNumber == pcNumber) {
+                break;
+            }
+            System.out.println("Игрок " + secondPlayer.getName() + " введите число");
+            secondPlayer.setNumber(sc.nextInt());
+            sc.nextLine();
+            playerNumber = secondPlayer.getNumber();
+            result();
+            if (playerNumber == pcNumber) {
+                String name = firstPlayer.getName();
+                firstPlayer = new Player(secondPlayer.getName());
+                secondPlayer = new Player(name);
+            }
+        } while (playerNumber != pcNumber);
     }
 
     public void result() {
