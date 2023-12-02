@@ -11,6 +11,10 @@ public class Player {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setNumber(int number) {
         if (number > 0 && number <= 100) {
             this.number = number;
