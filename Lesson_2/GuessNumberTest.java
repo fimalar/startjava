@@ -11,10 +11,9 @@ public class GuessNumberTest {
         String inputYesNo = "";
         do {
             guessNumber.play();
-            System.out.println("Хотите продолжить игру? [yes/no]: ");
-            inputYesNo = sc.nextLine();
             while (!inputYesNo.equals("yes") && !inputYesNo.equals("no")) {
                 System.out.println("Хотите продолжить игру? [yes/no]: ");
+                inputYesNo = sc.nextLine();
             }
         } while (inputYesNo.equals("yes"));
     }
