@@ -23,26 +23,32 @@ public class GuessNumber {
             if (isGuessed(player1)) {
                 break;
             }
-            String name = player1.getName();
-            player1.setName(player2.getName());
-            player2.setName(name);
-        } while (!false);
+            swap(player1, player2);
+        } while (true);
     }
 
     private int generateSecretNumber() {
         return secretNumber = (int) (Math.random() * 100 + 1);
     }
 
-    private boolean isGuessed(Player player) {
-        if (player.getNumber() == secretNumber) {
+    private boolean isGuessed(Player player1) {
+        boolean isGuessed = false;
+        if (player1.getNumber() == secretNumber) {
             System.out.println("Вы выиграли!");
-            return true;
+            isGuessed = true;
         }
-        if (player.getNumber() > secretNumber) {
-            System.out.printf("Число %d больше числа, что загадал компьютер\n", player.getNumber());
-        } else if (player.getNumber() < secretNumber) {
-            System.out.printf("Число %d меньше того, что загадал компьютер\n", player.getNumber());
+        if (player1.getNumber() > secretNumber) {
+            System.out.printf("Число %d больше числа, что загадал компьютер\n", player1.getNumber());
+        } else if (player1.getNumber() < secretNumber) {
+            System.out.printf("Число %d меньше того, что загадал компьютер\n", player1.getNumber());
         }
-        return false;
+        return isGuessed;
+    }
+
+    private void swap(Player player1, Player player2) {
+        Player temp = new Player("");
+        temp.setName(player1.getName());
+        player1.setName(player2.getName());
+        player2.setName(temp.getName());
     }
 }
