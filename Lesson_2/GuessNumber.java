@@ -32,17 +32,17 @@ public class GuessNumber {
     }
 
     private boolean isGuessed(Player player1) {
-        boolean isGuessed = false;
         if (player1.getNumber() == secretNumber) {
             System.out.println("Вы выиграли!");
-            isGuessed = true;
+            return true;
         }
         if (player1.getNumber() > secretNumber) {
             System.out.printf("Число %d больше числа, что загадал компьютер\n", player1.getNumber());
-        } else if (player1.getNumber() < secretNumber) {
+        } 
+        if (player1.getNumber() < secretNumber) {
             System.out.printf("Число %d меньше того, что загадал компьютер\n", player1.getNumber());
         }
-        return isGuessed;
+        return false;
     }
 
     private void swap(Player player1, Player player2) {
