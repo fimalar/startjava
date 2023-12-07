@@ -7,23 +7,23 @@ public class GuessNumber {
     private int secretNumber;
     private Player player1;
     private Player player2;
+    private Player currentPlayer;
 
-    GuessNumber(Player player1, Player player2) {
+    public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
-        this.player2 = player2; 
+        this.player2 = player2;
+        currentPlayer = player1;
     }
 
     public void play() {
         generateSecretNumber();
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("Игрок " + player1.getName() + " введите число");
-            player1.setNumber(sc.nextInt());
-            sc.nextLine();
-            if (isGuessed(player1)) {
+            inputNumber(sc);
+            if (isGuessed(currentPlayer)) {
                 break;
             }
-            swap(player1, player2);
+            currentPlayer = swap();
         } while (true);
     }
 
@@ -31,24 +31,32 @@ public class GuessNumber {
         return secretNumber = (int) (Math.random() * 100 + 1);
     }
 
-    private boolean isGuessed(Player player1) {
-        if (player1.getNumber() == secretNumber) {
+    public void inputNumber(Scanner sc) {
+        System.out.println("Игрок " + currentPlayer.getName() + " введите число");
+            currentPlayer.setNumber(sc.nextInt());
+            // sc.nextLine();
+    }
+
+    private boolean isGuessed(Player currentPlayer) {
+        if (currentPlayer.getNumber() == secretNumber) {
             System.out.println("Вы выиграли!");
             return true;
         }
-        if (player1.getNumber() > secretNumber) {
-            System.out.printf("Число %d больше числа, что загадал компьютер\n", player1.getNumber());
+        if (currentPlayer.getNumber() > secretNumber) {
+            System.out.printf("Число %d больше числа, что загадал компьютер\n", currentPlayer.getNumber());
         } 
-        if (player1.getNumber() < secretNumber) {
-            System.out.printf("Число %d меньше того, что загадал компьютер\n", player1.getNumber());
+        else {
+            System.out.printf("Число %d меньше того, что загадал компьютер\n", currentPlayer.getNumber());
         }
         return false;
     }
 
-    private void swap(Player player1, Player player2) {
-        Player temp = new Player("");
-        temp.setName(player1.getName());
-        player1.setName(player2.getName());
-        player2.setName(temp.getName());
+    private Player swap() {
+        if (currentPlayer == player1) {
+            currentPlayer = player2;
+        } else {
+            currentPlayer = player1;
+        }
+        return currentPlayer;
     }
 }
