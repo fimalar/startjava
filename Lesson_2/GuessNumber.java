@@ -33,9 +33,8 @@ public class GuessNumber {
 
     public void inputNumber(Scanner sc) {
         System.out.println("Игрок " + currentPlayer.getName() + " введите число");
-            currentPlayer.setNumber(sc.nextInt());
-            // sc.nextLine();
-    }
+        currentPlayer.setNumber(sc.nextInt());
+        }
 
     private boolean isGuessed(Player currentPlayer) {
         if (currentPlayer.getNumber() == secretNumber) {
@@ -44,8 +43,7 @@ public class GuessNumber {
         }
         if (currentPlayer.getNumber() > secretNumber) {
             System.out.printf("Число %d больше числа, что загадал компьютер\n", currentPlayer.getNumber());
-        } 
-        else {
+        } else {
             System.out.printf("Число %d меньше того, что загадал компьютер\n", currentPlayer.getNumber());
         }
         return false;
