@@ -1,3 +1,5 @@
+package com.startjava.lesson_2_3.robot;
+
 public class Jaeger {
     private String modelName;
     private String mark;
@@ -8,6 +10,10 @@ public class Jaeger {
     private int strength;
     private int armor;
     private String weapon;
+
+    public Jaeger() {
+        
+    }
 
     public Jaeger(String modelName, String mark, String origin, float height, 
             float weight, int speed, int strength, int armor, String weapon) {
@@ -118,6 +124,7 @@ public class Jaeger {
         if (this.weapon.equals(weapon)) {
             return true;
         }
+        return false;
     }
 
     @Override
