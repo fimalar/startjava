@@ -3,4 +3,4 @@ out
 options
 optionsj
 *.iml
-*idea
+.idea
