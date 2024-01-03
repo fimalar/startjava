@@ -26,9 +26,8 @@ public class ArrayTheme {
         int length = sequenceNumbs.length;
         System.out.println("До реверса: " + Arrays.toString(sequenceNumbs));
         for (int i = 0; i < length; i++) {
-            length--;
             int temp = sequenceNumbs[i];
-            sequenceNumbs[i] = sequenceNumbs[length];
+            sequenceNumbs[i] = sequenceNumbs[--length];
             sequenceNumbs[length] = temp;
         }
         System.out.println("После реверса: " + Arrays.toString(sequenceNumbs));
