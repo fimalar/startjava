@@ -18,46 +18,48 @@ public class ArrayTheme {
         printAlphabetStairs();
 
         System.out.println("\n5. Заполнение массива уникальными числами");
-        fillUniqueRandomNumbs();
+        fillUniqueNumbs();
     }
 
     private static void reverseElements() {
-        int[] segmentNumbsToSeven = {7, 5, 1, 4, 6, 2, 3};
-        int length = segmentNumbsToSeven.length;
-        System.out.println("До реверса: " + Arrays.toString(segmentNumbsToSeven));
+        int[] sequenceNumbs = {7, 5, 1, 4, 6, 2, 3};
+        int length = sequenceNumbs.length;
+        System.out.println("До реверса: " + Arrays.toString(sequenceNumbs));
         for (int i = 0; i < length; i++) {
             length--;
-            int temp = segmentNumbsToSeven[i];
-            segmentNumbsToSeven[i] = segmentNumbsToSeven[length];
-            segmentNumbsToSeven[length] = temp;
+            int temp = sequenceNumbs[i];
+            sequenceNumbs[i] = sequenceNumbs[length];
+            sequenceNumbs[length] = temp;
         }
-        System.out.println("После реверса: " + Arrays.toString(segmentNumbsToSeven));
+        System.out.println("После реверса: " + Arrays.toString(sequenceNumbs));
     }
 
     private static void multiplyElements() {
         int[] multipliers = new int[10];
-        for (int i = 0; i < multipliers.length; i++) {
+        int length = multipliers.length;
+        for (int i = 0; i < length; i++) {
             multipliers[i] = i;
         }
-        int multi = 1;
-        for (int i = 1; i < multipliers.length - 1; i++) {
-            multi *= i;
+        int productNumbs = 1;
+        for (int i = 1; i < length - 1; i++) {
+            productNumbs *= multipliers[i];
             System.out.print(multipliers[i]);
-            System.out.print((i != multipliers.length - 2) ?  " * " : " = " + multi);
+            System.out.print((i != length - 2) ?  " * " : " = " + productNumbs);
         }
     }
 
     private static void deleteElements() {
         double[] randomDoubles = new double[15];
-        for (int i = 0; i < randomDoubles.length; i++) {
+        int length = randomDoubles.length;
+        for (int i = 0; i < length; i++) {
             randomDoubles[i] = Math.random();
         }
         System.out.println("Исходный массив:");
         printArray(randomDoubles);
-        double numbMiddleCell = randomDoubles[randomDoubles.length / 2];
+        double middleCellNumb = randomDoubles[length / 2];
         int countZeros = 0;
-        for (int i = 0; i < randomDoubles.length; i++) {
-            if (randomDoubles[i] > numbMiddleCell) {
+        for (int i = 0; i < length; i++) {
+            if (randomDoubles[i] > middleCellNumb) {
                 randomDoubles[i] = 0;
                 countZeros++;
             }
@@ -78,47 +80,51 @@ public class ArrayTheme {
     }
 
     private static void printAlphabetStairs() {
-        char[] CapitalLetters = new char[26];
-        for (int i = 0; i < CapitalLetters.length; i++) {
-            CapitalLetters[i] = (char) (i + 'A');
+        char[] capitalAlphabet = new char[26];
+        int length = capitalAlphabet.length;
+        for (int i = 0; i < length; i++) {
+            capitalAlphabet[i] = (char) (i + 'A');
         }
-        for (int i = CapitalLetters.length - 1; i >= 0; i--) {
-            for (int j = CapitalLetters.length - 1; j >= i; j--) {
-                System.out.print(CapitalLetters[j]);
+        for (int i = length - 1; i >= 0; i--) {
+            for (int j = length - 1; j >= i; j--) {
+                System.out.print(capitalAlphabet[j]);
             }
             System.out.println();
         }
     }
 
-    private static void fillUniqueRandomNumbs() {
-        int[] uniqueRandomNumbs = new int[30];
+    private static void fillUniqueNumbs() {
+        int[] uniqueNumbs = new int[30];
         Random random = new Random();
         int numb;
-        for (int i = 0; i < uniqueRandomNumbs.length; i++) {
-            numb = random.nextInt(30, 60);
-            for (int j = 0; j <= i; j++) {
-                if (numb == uniqueRandomNumbs[j]) {
-                    numb = random.nextInt(30, 60);
-                    j = 0;
-                }
-            }
-            uniqueRandomNumbs[i] = numb;
-        }
-        for (int i = 0; i < uniqueRandomNumbs.length; i++) {
-            for (int j = 0; j < uniqueRandomNumbs.length - 1 - i; j++) {
-                if (uniqueRandomNumbs[j] > uniqueRandomNumbs[j + 1]) {
-                    int temp = uniqueRandomNumbs[j];
-                    uniqueRandomNumbs[j] = uniqueRandomNumbs[j + 1];
-                    uniqueRandomNumbs[j + 1] = temp;
+        for (int i = 0; i < uniqueNumbs.length; i++) {
+            uniqueNumbs[i] = random.nextInt(60, 100);
+            for (int j = 0; j < i; j++) {
+                if (uniqueNumbs[i] == uniqueNumbs[j]) {
+                    i--;
+                    break;
                 }
             }
         }
-        for (int i = 0; i < uniqueRandomNumbs.length ; i++) {
+        sort(uniqueNumbs);
+        for (int i = 0; i < uniqueNumbs.length ; i++) {
             if (i % 10 == 0) {
                 System.out.println();
             }
-            System.out.print(uniqueRandomNumbs[i]);
-            System.out.print((i != uniqueRandomNumbs.length - 1) ? ", " : "");
+            System.out.print(uniqueNumbs[i]);
+            System.out.print((i != uniqueNumbs.length - 1) ? ", " : "");
+        }
+    }
+
+    private static void sort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
         }
     }
 }
