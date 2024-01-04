@@ -43,7 +43,7 @@ public class ArrayTheme {
         for (int i = 1; i < length - 1; i++) {
             productNumbs *= multipliers[i];
             System.out.print(multipliers[i]);
-            System.out.print((i != length - 2) ?  " * " : " = " + productNumbs);
+            System.out.print((i != length - 2) ? " * " : " = " + productNumbs);
         }
     }
 
@@ -94,24 +94,26 @@ public class ArrayTheme {
 
     private static void fillUniqueNumbs() {
         int[] uniqueNumbs = new int[30];
+        int length = uniqueNumbs.length;
         Random random = new Random();
-        int numb;
-        for (int i = 0; i < uniqueNumbs.length; i++) {
-            uniqueNumbs[i] = random.nextInt(60, 100);
-            for (int j = 0; j < i; j++) {
-                if (uniqueNumbs[i] == uniqueNumbs[j]) {
+        for (int i = 0; i < length; i++) {
+            int numb = random.nextInt(60, 100);
+            for (int j = 0; j <= i; j++) {
+                if (numb == uniqueNumbs[j]) {
                     i--;
                     break;
+                } else if (numb != uniqueNumbs[j] && j == i) {
+                    uniqueNumbs[i] = numb;
                 }
             }
         }
         sort(uniqueNumbs);
-        for (int i = 0; i < uniqueNumbs.length ; i++) {
+        for (int i = 0; i < length ; i++) {
             if (i % 10 == 0) {
                 System.out.println();
             }
             System.out.print(uniqueNumbs[i]);
-            System.out.print((i != uniqueNumbs.length - 1) ? ", " : "");
+            System.out.print((i != length - 1) ? ", " : "");
         }
     }
 
